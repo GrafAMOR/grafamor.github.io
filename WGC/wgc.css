@@ -1,0 +1,209 @@
+body {
+background:darkslategray;
+}
+
+.wrapper{
+	width: 800px;
+	height: 600px;
+	border: 1px solid #000;
+	margin: auto;
+	position: relative;
+	background: lightblue;
+}
+#defecation,#defecation_left,#defecation_right,
+#bird,#bird1_left,#bird2_left,#bird1_right,#bird2_right,
+#shore_left,#shore_right,
+#cabbage,#cabbage_left,#cabbage_right,
+#goat,#goat_left,#goat_right,
+#wolf,#wolf_left,#wolf_right,
+#river,
+#wave2,
+#fish,#fish_left,#fish_right,
+#boat,#boat_left,#boat_right,
+#wave1,
+#splash,
+#text{
+	position: absolute;
+}
+#defecation_left,#defecation_right,
+#bird1_left,#bird2_left,#bird1_right,#bird2_right,
+#cabbage_left,
+#goat_left,
+#wolf_right,
+#fish_left,#fish_right,
+#boat_right{
+	display: none;
+}
+#boat, #cabbage, #goat, #wolf, #fish, #bird, #defecation, #splash{
+	cursor: pointer;
+}
+#wave1, #wave2 {
+	width: 360px;
+	height: 100px;
+
+}
+#wave1 {
+	background:  url(wave1.png);
+	bottom: 30px;
+	left: 220px;
+}
+#wave2 {
+	background:  url(wave2.png);
+	bottom: 50px;
+	left: 220px;
+}
+#shore_left, #shore_right{
+	width: 240px;
+	height: 149px;
+}
+#shore_left{
+	background:  url(shore_left.png);
+	bottom: 0;
+	left: 0;
+}
+#shore_right{
+	background:  url(shore_right.png);
+	bottom: 0;
+	right: 0;
+}
+#river{
+	width: 320px;
+	height: 80px;
+	background:  blue;
+	bottom: 0;
+	left: 240px;
+}
+#boat{
+	width: 200px;
+	height: 152px;
+	bottom: 90px;
+	left: 220px;
+}
+#boat_left{
+	width: 200px;
+	height: 152px;
+	background:  url(boat_left.png);
+}
+#boat_right{
+	width: 200px;
+	height: 152px;
+	background:  url(boat_right.png);
+}
+#cabbage{
+	width: 56px;
+	height: 46px;
+	bottom: 148px;
+	left: 156px;
+}
+#cabbage_left{
+	width: 56px;
+	height: 46px;
+	background:  url(cabbage_left.png);
+	background-size: 100%;
+}
+#cabbage_right{
+	width: 56px;
+	height: 46px;
+	background:  url(cabbage_right.png);
+	background-size: 100%;
+}
+#goat{
+	width: 44px;
+	height: 90px;
+	bottom: 142px;
+	left: 100px;
+}
+#goat_left{
+	width: 44px;
+	height: 90px;
+	background:  url(goat_left.png);
+	background-size: 100%;
+}
+#goat_right{
+	width: 44px;
+	height: 90px;
+	background:  url(goat_right.png);
+	background-size: 100%;
+}
+#wolf{
+	width: 64px;
+	height: 94px;
+	bottom: 142px;
+	right: 10px;
+}
+#wolf_left{
+	width: 64px;
+	height: 94px;
+	background:  url(wolf_left.png);
+	background-size: 100%;
+}
+#wolf_right{
+	width: 64px;
+	height: 94px;
+	background:  url(wolf_right.png);
+	background-size: 100%;
+}
+#fish{
+	width: 50px;
+	height: 100px;
+	bottom: 80px;
+	left: 500px;
+}
+#fish_left{
+	width: 50px;
+	height: 100px;
+	background:  url(fish_left.png);
+}
+#fish_right{
+	width: 50px;
+	height: 100px;
+	background:  url(fish_right.png);
+}
+#bird{
+	width: 40px;
+	height: 22px;
+	top: 20px;
+	left: 400px;
+}
+#bird1_left{
+	width: 40px;
+	height: 22px;
+	background:  url(bird1_left.png);
+}
+#bird2_left{
+	width: 40px;
+	height: 22px;
+	background:  url(bird2_left.png);
+}
+#bird1_right{
+	width: 40px;
+	height: 22px;
+	background:  url(bird1_right.png);
+}
+#bird2_right{
+	width: 40px;
+	height: 22px;
+	background:  url(bird2_right.png);
+}
+#defecation{
+	width: 8px;
+	height: 16px;
+	top: 300px;
+	left: 600px;
+}
+#defecation_left{
+	width: 8px;
+	height: 16px;
+	background:  url(defecation_left.png);
+}
+#defecation_right{
+	width: 8px;
+	height: 16px;
+	background:  url(defecation_right.png);
+}
+#splash{
+	width: 800px;
+	height: 600px;
+	background: rgba(99, 250, 99, 0.8);
+	border: 2px solid black;
+}
