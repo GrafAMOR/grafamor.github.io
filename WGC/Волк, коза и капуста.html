@@ -1,0 +1,135 @@
+<script>
+var wolf=true;
+var goat=wolf;
+var cabbage=goat;
+var farmer=cabbage;
+var str='';
+var left='';
+var right='';
+var direct='';
+var whom='';
+var loose=false;
+alert ('Однажды крестьянину понадобилось перевезти через реку волка, козу и капусту. У крестьянина есть лодка, в которой может поместиться, кроме самого крестьянина, только одно существо или предмет — или волк, или коза, или капуста. Если крестьянин оставит без присмотра волка с козой, то волк съест козу; если крестьянин оставит без присмотра козу с капустой, коза съест капусту. Как крестьянину перевезти на другой берег всё своё имущество в целости и сохранности?\n\rПоехали!');
+do {
+	str ='';
+	left='';
+	right='';
+	whom='';
+	if (wolf) {
+		left = left + "волк, ";
+	} else {
+		right =right + "волк, ";
+	}
+	if (goat) {
+		left = left + "коза, ";
+	} else {
+		right =right + "коза, ";
+	}
+	if (cabbage) {
+		left = left + "капуста, ";
+	} else {
+		right =right + "капуста, ";
+	}
+	if (farmer) {
+		left = left + "крестьянин, ";
+		direct = 'правый'
+	} else {
+		right =right + "крестьянин, ";
+		direct = 'левый'
+	}
+	if (right=='') {
+		right = 'никого';
+	}
+	right =right + ".";
+
+	str = 'Итак!\n\rНа левом берегу: '+left+'\n\rна правом берегу: '+right
+
+	whom = '0 - никого\n\r';
+
+	if (farmer==wolf) {
+		whom = whom + '1 - волка\n\r';
+	}
+	if (farmer==goat) {
+		whom = whom + '2 - козу\n\r';
+	}
+	if (farmer==cabbage) {
+		whom = whom + '3 - капусту\n\r';
+	}
+
+	str=str+'\n\rКого крестьянин возьмет с собой на '+direct+' берег?\n\r'+whom
+
+	var a=parseInt (prompt (str));
+
+	if (isNaN(a)) {
+		alert ('Ну, нафиг!');
+		continue;
+	}
+
+	if ((a<0)||(a>3)) {
+		alert ('Вне диапазона');
+		continue;
+	}
+
+	whom = 'один переплывает';
+
+	if (a==1) {
+		if (farmer!=wolf) {
+			alert ('Волк на другом берегу');
+			continue;
+		}
+		wolf=!wolf;
+		whom = 'перевозит волка';
+	}
+	if (a==2) {
+		if (farmer!=goat) {
+			alert ('Коза на другом берегу');
+			continue;
+		}
+		goat=!goat;
+		whom = 'перевозит козу';
+	}
+	if (a==3) {
+		if (farmer!=cabbage) {
+			alert ('Капуста на другом берегу');
+			continue;
+		}
+		cabbage=!cabbage;
+		whom = 'перевозит капусту';
+	}
+	farmer = !farmer;
+
+	alert ('Крестьянин '+whom+' на '+direct+' берег');
+
+	str='';
+	if ((goat==cabbage)&&(goat!=farmer)) {
+		str=str+'Коза съедает капусту\n\r';
+	}
+	if ((goat==wolf)&&(goat!=farmer)) {
+		str=str+'Волк съедает козу\n\r';
+	}
+	if (str!='') {
+		alert (str+'Вы не справились!');
+		loose=true;
+		if (parseInt(prompt('Попробуем еще раз?\n\r1 - да'))==1) {
+			var wolf=true;
+			var goat=wolf;
+			var cabbage=goat;
+			var farmer=cabbage;
+			var str='';
+			var left='';
+			var right='';
+			var direct='';
+			var whom='';
+			var loose=false;
+		} else {
+			break;
+		}
+	}
+
+
+} while (wolf || goat || cabbage);
+
+if (!loose) {
+	alert ('Поздравляю!\n\rВы справились!');
+}
+</script>
