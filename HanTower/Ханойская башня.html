@@ -1,0 +1,150 @@
+<meta charset="utf-8">
+<script type = "text/javascript">
+	//var name = prompt ("Введите ваше имя: ")
+	//alert("Hello, " + name)
+	var text1='Даны три стержня, на один из которых нанизаны кольца, причем кольца отличаются размером и лежат меньшее на большем. Задача состоит в том, чтобы перенести пирамиду за наименьшее число ходов с первого на третий стержень. За один раз разрешается переносить только одно кольцо, причём нельзя класть большее кольцо на меньшее.'
+	var text2='Сколько колец? (2-10)\n\rМинимальное количесво ходов равно 2^n-1\n\rДля 10 колец - это 1023 хода'
+	
+	while (prompt(text1+'\n\rEnter - продолжить')=='') {
+		
+		var ok=true;
+		do {
+			var n=parseInt(prompt(text2));
+			if (isNaN(n)) {
+				alert ('Чё???');
+				continue;
+			}
+			if (n<2) {
+				alert ('Маловато будет');
+				continue;
+			}
+			if (n>10) {
+				alert ('Секаса не хватает?');
+				continue;
+			}
+			ok=false;
+		} while (ok)
+
+		var c1=[];
+		var c2=[];
+		var c3=[];
+		for (var i=0; i<n; i++) {
+			c1[i]=n-i;
+		}
+		
+		do {
+			function subStr(num,max) {
+				var res='';
+				var r1='';
+				var r2='';
+				var s1='*';
+				var s2=' ';
+				var s3='|';
+				for (var i=0; i<num; i++) {
+					r1=r1+s1;
+				}
+				for (var i=0; i<(max-num); i++) {
+					r2=r2+s2;
+				}
+				res = s2+r2+r1+s3+r1+r2+s2;
+				return res;
+			}
+
+			function check(a1, a2) {
+				var l1=a1.length;
+				var l2=a2.length;
+				var res = false;
+				if (l1>0) {
+					if (l2==0) {
+						res = true;
+					} else if (a1[l1-1]<a2[l2-1]) {
+						res = true;
+					}
+				}
+				return res;
+			}
+
+			function replace (a1,a2) {
+				var res = false;
+				var l1=a1.length;
+				var l2=a2.length;
+				if (l1==0) {
+					alert ('Неоткуда брать');
+					return;
+				} else if (l2>0) {
+					if (a1[l1-1]>a2[l2-1]) {
+						alert ('Нельзя класть большее кольцо на меньшее');
+						return;
+					}
+				}
+				var a = a1.pop();
+				a2.push(a);
+				return;
+			}
+
+			var tower='';
+			for (var i=n; i>0; i--) {
+				if (c1.length<i) {
+					tower = tower + subStr(0,n);
+				} else {
+					tower = tower + subStr(c1[i-1],n);
+				}
+				if (c2.length<i) {
+					tower = tower + subStr(0,n);
+				} else {
+					tower = tower + subStr(c2[i-1],n);
+				}
+				if (c3.length<i) {
+					tower = tower + subStr(0,n);
+				} else {
+					tower = tower + subStr(c3[i-1],n);
+				}
+				tower = tower+'\n\r';
+			}
+			var text3='Выберите с какого стержня и на какой переложить верхнее кольцо:\n\r';
+			if (check (c1,c2)) {
+				text3=text3+'12 - переложить с 1-го на 2-й\n\r';
+			}
+			if (check (c1,c3)) {
+				text3=text3+'13 - переложить с 1-го на 3-й\n\r';
+			}
+			if (check (c2,c1)) {
+				text3=text3+'21 - переложить со 2-го на 1-й\n\r';
+			}
+			if (check (c2,c3)) {
+				text3=text3+'23 - переложить со 2-го на 3-й\n\r';
+			}
+			if (check (c3,c1)) {
+				text3=text3+'31 - переложить с 3-го на 1-й\n\r';
+			}
+			if (check (c3,c2)) {
+				text3=text3+'32 - переложить с 3-го на 2-й\n\r';
+			}
+			var move = prompt (tower+text3);
+			if (move=='12') {
+				replace (c1,c2);
+			}
+			if (move=='13') {
+				replace (c1,c3);
+			}
+			if (move=='21') {
+				replace (c2,c1);
+			}
+			if (move=='23') {
+				replace (c2,c3);
+			}
+			if (move=='31') {
+				replace (c3,c1);
+			}
+			if (move=='32') {
+				replace (c3,c2);
+			}
+
+			if (c3.length==n) {
+				alert('Праздравляю!!!');
+			}
+
+		} while (c3.length<n)
+
+	}
+</script>
