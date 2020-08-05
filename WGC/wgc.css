@@ -148,6 +148,7 @@ background:darkslategray;
 	height: 100px;
 	bottom: 80px;
 	left: 500px;
+	visibility: hidden;
 }
 #fish_left{
 	width: 50px;
@@ -204,6 +205,13 @@ background:darkslategray;
 #splash{
 	width: 800px;
 	height: 600px;
-	background: rgba(99, 250, 99, 0.8);
+	background: rgb(0, 128, 0);
 	border: 2px solid black;
+	font-weight: 900;
+	font-size: 200%;
+	text-indent: 10%;
+	box-sizing: border-box;
+	padding: 10%;
+	color: black;
+	opacity:1;
 }

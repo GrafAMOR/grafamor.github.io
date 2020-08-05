@@ -23,11 +23,20 @@ function game () {
 
 function update () {
 	time = new Date().getTime();
+	if ((stage == 1)||(stage == 2)) {
+		waves_move ();
+		boat_y_move ();
+	}
+	
+	
 	//console.log(time-timeOld);
-	//timeOld=time;
+	//time_old=time;
 }
 
 function render () {
+	if (stage == 1) {
+		splash_out ();
+	}
 	//var r=Math.round(127.5+127.5*Math.sin(time/500));
 	//var g=Math.round(127.5+127.5*Math.sin(time/400));
 	//var b=Math.round(127.5+127.5*Math.sin(time/300));
@@ -38,15 +47,5 @@ function render () {
 	//+","+(0.5+0.5*Math.sin(time/600))
 	//+")";
 
-	boat_y = 90 + 5*Math.sin(time/500);
-	boat.bottom = boat_y +"px";
-	//boat.left = boat_x + 2*Math.sin(time/450) + "px";
-
-
-	wave2.bottom = 60 + 2*Math.sin(time/600) +"px";
-	wave2.left = 220 + 5*Math.sin(time/550) + "px";
-
-	wave1.bottom = 40 + 5*Math.sin(time/400) +"px";
-	wave1.left = 220 + 10*Math.sin(time/350) + "px";
 }
 

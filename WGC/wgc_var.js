@@ -8,6 +8,9 @@ const fish_audio = new Audio ("fish.wav");
 const bird_audio = new Audio ("bird.wav");
 const defecation_audio = new Audio ("poo.wav");
 
+let stage = 0;
+let op = 0;
+let focused = null;
 let time = new Date().getTime();
 let timeOld = time;
 let boat_y = 90;
@@ -20,7 +23,10 @@ let goat = document.getElementById("goat").style;
 let cabbage = document.getElementById("cabbage").style;
 let cabbage_left = document.getElementById("cabbage_left").style;
 let cabbage_right = document.getElementById("cabbage_right").style;
-let splash_style = document.getElementById("splash").style;
+let fish = document.getElementById("fish");
+let fish_style = fish.style;
+let splash = document.getElementById("splash");
+let splash_style = splash.style;
 
 document.getElementById("cabbage").onmousemove = mouseMove;
 document.getElementById("goat").onmousemove = mouseMove;
